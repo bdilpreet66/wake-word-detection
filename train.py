@@ -29,6 +29,9 @@ class ModelTrainer():
         elif self.model_type == 'conv2d':
             from models.conv2d import Conv2D
             return Conv2D(**params)
+        elif self.model_type == 'lstm':
+            from models.lstm import LSTM
+            return LSTM(**params)
         else:
             raise Exception(f'Invalid model type - {model}')
             
@@ -107,7 +110,7 @@ class ModelTrainer():
 
 if __name__ == '__main__':
     trainer = ModelTrainer(
-                    model='conv2d', 
+                    model='lstm', 
                     root='clean', 
                     batch_size=32, 
                     delta_time=1, 
